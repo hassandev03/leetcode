@@ -4,7 +4,11 @@ class Solution {
 
         for (int i = 0; i < haystackLength - needleLength + 1; i++) {
             if (needle.charAt(0) == haystack.charAt(i)) {
-                if (needle.equals(haystack.substring(i, i + needleLength)))
+                int j = 0;
+                while (j < needleLength && needle.charAt(j) == haystack.charAt(i + j))
+                    j++;
+
+                if (j == needleLength)
                     return i;
             }
         }
