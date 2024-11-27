@@ -3,9 +3,9 @@ class Solution {
         int numsLength = nums.length;
         Arrays.sort(nums);
 
-        List<List<Integer>> zeroSum = new ArrayList<List<Integer>>();
+        List<List<Integer>> zeroSum = new ArrayList<>();
 
-        for (int i = 0; i < numsLength; i++) {
+        for (int i = 0; i < numsLength - 2; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) // duplicate elements are consecutive due to sorting
                 continue;
 
@@ -14,7 +14,7 @@ class Solution {
                 int sum = nums[i] + nums[start] + nums[end];
 
                 if (sum == 0) {
-                    zeroSum.add(new ArrayList<Integer>(List.of(nums[i], nums[start], nums[end])));
+                    zeroSum.add(List.of(nums[i], nums[start], nums[end]));
                     start++;
                     end--;
 
