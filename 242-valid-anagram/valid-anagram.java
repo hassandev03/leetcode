@@ -8,8 +8,8 @@ class Solution {
         for (int i = 0; i < t.length(); i++) 
             occurances[t.charAt(i) - 'a']--;
         
-        for (int number: occurances) {
-            if (number != 0) return false;
+        for (int i = 0; i < occurances.length; i++) {
+            if (occurances[i] != 0) return false;
         }
 
         return true;
