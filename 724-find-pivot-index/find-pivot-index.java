@@ -2,7 +2,7 @@ class Solution {
     public int pivotIndex(int[] nums) {
         int totalSum = 0;
 
-        for (final int num: nums) 
+        for (int num: nums) 
             totalSum += num;
 
         
