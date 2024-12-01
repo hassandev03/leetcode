@@ -4,18 +4,14 @@ class Solution {
         if (nums.length == 1)
             return;
 
-        int prev = 0, next = 1;
-        while (next < numsLength) {
-            if (nums[prev] == 0 && nums[next] != 0) {
-                int tempNum = nums[prev];
-                nums[prev] = nums[next];
-                nums[next] = tempNum;
-                prev++;
-            }
-            else if (nums[prev] != 0) {
-                prev++;
-            }
-            next++;
+        int lastNonZeroIndex = 0;
+        for (int index = 0; index < numsLength; index++) {
+            if (nums[index] != 0)
+                nums[lastNonZeroIndex++] = nums[index];
         }
+
+        while (lastNonZeroIndex < numsLength)
+            nums[lastNonZeroIndex++] = 0;
+
     }
 }
