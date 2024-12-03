@@ -1,18 +1,34 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int count = 0, majorityElement = 0;
+        int n = nums.length;
+        int candidate = -1;
+        int count = 0;
 
-        for (int i = 0; i < nums.length; i++) {
+        // Find a candidate
+        for (int num : nums) {
             if (count == 0) {
-                majorityElement = nums[i];
+                candidate = num;
                 count = 1;
-            }
-            else if (majorityElement == nums[i])
+            } else if (num == candidate) {
                 count++;
-            else
+            } else {
                 count--;
+            }
         }
 
-        return majorityElement;
+        // Validate the candidate
+        count = 0;
+        for (int num : nums) {
+            if (num == candidate) {
+                count++;
+            }
+        }
+    
+          // If count is greater than n / 2, return the candidate; otherwise, return -1
+        if (count > n / 2) {
+            return candidate;
+        } else {
+            return -1;
+        }
     }
 }
