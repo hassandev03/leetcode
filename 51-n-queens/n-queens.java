@@ -6,7 +6,7 @@ public class Solution {
 
     public List<List<String>> solveNQueens(int n) {
         char[][] board = new char[n][n];
-        
+
         // Fill the board with '.'
         for (int i = 0; i < n; i++) {
             Arrays.fill(board[i], '.');
@@ -32,9 +32,7 @@ public class Solution {
     }
 
     private boolean isSafe(int row, int col) {
-        return !cols.contains(col) &&
-               !leftDiags.contains(row + col) &&
-               !rightDiags.contains(row - col);
+        return !(cols.contains(col) || leftDiags.contains(row + col) || rightDiags.contains(row - col));
     }
 
     private void placeQueen(char[][] board, int row, int col) {
